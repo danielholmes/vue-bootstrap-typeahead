@@ -85,10 +85,13 @@ export default {
 
       // Filter, sort, and concat
       return this.data
-        .filter(i => i.text.match(re) !== null)
+        // Assume will only pass items into this
+        // .filter(i => i.text.match(re) !== null)
         .sort((a, b) => {
-          const aIndex = a.text.indexOf(a.text.match(re)[0])
-          const bIndex = b.text.indexOf(b.text.match(re)[0])
+          const aMatch = a.text.match(re)
+          const bMatch = b.text.match(re)
+          const aIndex = (aMatch && aMatch.length) ? a.text.indexOf(aMatch[0]) : -1
+          const bIndex = (bMatch && bMatch.length) ? b.text.indexOf(bMatch[0]) : -1
 
           if (aIndex < bIndex) { return -1 }
           if (aIndex > bIndex) { return 1 }
