@@ -2265,15 +2265,15 @@ var staticRenderFns = []
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d50f023a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VueBootstrapTypeaheadList.vue?vue&type=template&id=53edcbcb&
-var VueBootstrapTypeaheadListvue_type_template_id_53edcbcb_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"list-group shadow"},_vm._l((_vm.matchedItems),function(item,id){return _c('vue-bootstrap-typeahead-list-item',{key:id,attrs:{"data":item.data,"html-text":_vm.highlight(item.text),"background-variant":_vm.backgroundVariant,"text-variant":_vm.textVariant},nativeOn:{"click":function($event){_vm.handleHit(item, $event)}},scopedSlots:_vm._u([{key:"suggestion",fn:function(ref){
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d50f023a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VueBootstrapTypeaheadList.vue?vue&type=template&id=5402d5d6&
+var VueBootstrapTypeaheadListvue_type_template_id_5402d5d6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"list-group shadow"},_vm._l((_vm.matchedItems),function(item,id){return _c('vue-bootstrap-typeahead-list-item',{key:id,attrs:{"data":item.data,"html-text":_vm.highlight(item.text),"background-variant":_vm.backgroundVariant,"text-variant":_vm.textVariant},nativeOn:{"click":function($event){_vm.handleHit(item, $event)}},scopedSlots:_vm._u([{key:"suggestion",fn:function(ref){
 var data = ref.data;
 var htmlText = ref.htmlText;
 return _vm.$scopedSlots.suggestion?[_vm._t("suggestion",null,null,{ data: data, htmlText: htmlText })]:undefined}}])})}))}
-var VueBootstrapTypeaheadListvue_type_template_id_53edcbcb_staticRenderFns = []
+var VueBootstrapTypeaheadListvue_type_template_id_5402d5d6_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/VueBootstrapTypeaheadList.vue?vue&type=template&id=53edcbcb&
+// CONCATENATED MODULE: ./src/components/VueBootstrapTypeaheadList.vue?vue&type=template&id=5402d5d6&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.match.js
 var es6_regexp_match = __webpack_require__("4917");
@@ -2545,12 +2545,14 @@ function escapeRegExp(str) {
       }
 
       var re = new RegExp(this.escapedQuery, 'gi'); // Filter, sort, and concat
+      // Assume will only pass items into this
+      // .filter(i => i.text.match(re) !== null)
 
-      return this.data.filter(function (i) {
-        return i.text.match(re) !== null;
-      }).sort(function (a, b) {
-        var aIndex = a.text.indexOf(a.text.match(re)[0]);
-        var bIndex = b.text.indexOf(b.text.match(re)[0]);
+      return this.data.slice(0).sort(function (a, b) {
+        var aMatch = a.text.match(re);
+        var bMatch = b.text.match(re);
+        var aIndex = aMatch && aMatch.length ? a.text.indexOf(aMatch[0]) : -1;
+        var bIndex = bMatch && bMatch.length ? b.text.indexOf(bMatch[0]) : -1;
 
         if (aIndex < bIndex) {
           return -1;
@@ -2583,8 +2585,8 @@ function escapeRegExp(str) {
 
 var VueBootstrapTypeaheadList_component = normalizeComponent(
   components_VueBootstrapTypeaheadListvue_type_script_lang_js_,
-  VueBootstrapTypeaheadListvue_type_template_id_53edcbcb_render,
-  VueBootstrapTypeaheadListvue_type_template_id_53edcbcb_staticRenderFns,
+  VueBootstrapTypeaheadListvue_type_template_id_5402d5d6_render,
+  VueBootstrapTypeaheadListvue_type_template_id_5402d5d6_staticRenderFns,
   false,
   null,
   null,

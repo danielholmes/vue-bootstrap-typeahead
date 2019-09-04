@@ -84,9 +84,10 @@ export default {
       const re = new RegExp(this.escapedQuery, 'gi')
 
       // Filter, sort, and concat
+      // Assume will only pass items into this
+      // .filter(i => i.text.match(re) !== null)
       return this.data
-        // Assume will only pass items into this
-        // .filter(i => i.text.match(re) !== null)
+        .slice(0)
         .sort((a, b) => {
           const aMatch = a.text.match(re)
           const bMatch = b.text.match(re)
