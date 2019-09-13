@@ -14,7 +14,7 @@
         :aria-label="placeholder"
         :value="inputValue"
         @focus="isFocused = true"
-        @blur="handleBlur"
+        @focusout="handleBlur"
         @input="handleInput($event.target.value)"
         autocomplete="off"
       />
@@ -145,7 +145,7 @@ export default {
 
     handleBlur(evt) {
       const tgt = evt.relatedTarget
-      if (tgt && tgt.classList.contains('vbst-item')) {
+      if (tgt && (tgt.classList.contains('vbst-item') || tgt.parentNode.classList.contains('vbst-item'))) {
         return
       }
       this.isFocused = false
