@@ -144,9 +144,12 @@ export default {
     },
 
     handleBlur(evt) {
-      const tgt = evt.relatedTarget
-      if (tgt && (tgt.classList.contains('vbst-item') || tgt.parentNode.classList.contains('vbst-item'))) {
-        return
+      let checkTarget = evt.relatedTarget
+      while (checkTarget) {
+        if (checkTarget.classList.contains('vbst-item')) {
+          return
+        }
+        checkTarget = checkTarget.parentNode
       }
       this.isFocused = false
     },
