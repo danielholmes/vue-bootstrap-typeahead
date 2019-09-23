@@ -146,7 +146,7 @@ export default {
     handleBlur(evt) {
       let checkTarget = evt.relatedTarget
       while (checkTarget) {
-        if (checkTarget.classList.contains('vbst-item')) {
+        if (checkTarget.classList && checkTarget.classList.contains('vbst-item')) {
           return
         }
         checkTarget = checkTarget.parentNode
